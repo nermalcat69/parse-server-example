@@ -1,0 +1,15 @@
+zerops:
+  - setup: api
+    build:
+      base: nodejs@20
+      buildCommands:
+        - pnpm i
+        - npm run build
+      deployFiles:
+        - /
+    run:
+      base: nodejs@20
+      ports:
+        - port: 3000
+          httpSupport: true
+      start: npm run start:prod
